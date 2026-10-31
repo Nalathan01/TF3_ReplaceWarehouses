@@ -25,8 +25,15 @@ Copy the folder `nalathan_lager_ersetzen` into your Transport Fever 3 local mods
 
 Bug reports and feature requests are welcome through GitHub Issues. Please include mod version, game version and a short description of what happened. `stdout.txt` from the `crash_dump` folder helps if the game shows a Lua error.
 
+## Download
+
+Available on mod.io, also directly in game via the Mod Hub:
+
+https://mod.io/g/transportfever3/m/replace-warehouses
+
 ## Links
 
 - Website: https://www.nalathan.de/
 - YouTube: https://www.youtube.com/@nalathangaming
+- mod.io: https://mod.io/g/transportfever3/m/replace-warehouses
 - Issues: https://github.com/Nalathan01/TF3_ReplaceWarehouses/issues
