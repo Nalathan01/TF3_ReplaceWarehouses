@@ -1,0 +1,25 @@
+{
+    "authors": [
+        {
+            "name": "Nalathan",
+            "role": "CREATOR"
+        }
+    ],
+    "name": "Replace Warehouses",
+    "summary": "Change the type of a warehouse module in place, the stored cargo is kept.",
+    "description": "REPLACE WAREHOUSES\nChange the type of a warehouse module right where it stands, without demolishing it and without losing the stored cargo.\n\n- New card \"Rebuild warehouse\" in the warehouse window: pick a new type per module (universal, goods, bulk, liquid, flatbed) and click \"Rebuild\"\n- No collision, position and connections stay the same, cargo that fits the new module stays in the warehouse\n- Cargo that no longer fits: the game pauses and a window shows which modules you need, for example \"1x Goods module: Bricks 200\"\n- Discard the cargo, or build a suitable warehouse or module: the build menu opens, a small info window stays visible and the cargo is stored automatically after building\n- Also catches cargo lost when you remove a module or demolish a whole warehouse the normal way\n\nGood to know: cargo can only be put back into specialised modules. The mod sets that module to the cargo type for you, you can reset it in the warehouse window at any time.\n\nLAGER ERSETZEN\nDen Typ eines Lagermoduls direkt an Ort und Stelle ändern, ohne Abriss und ohne die gelagerte Ware zu verlieren.\n\n- Neue Karte „Lager umbauen“ im Lagerfenster: pro Modul einen neuen Typ wählen (Universal, Stückgut, Schüttgut, Flüssig, Flachwagen) und „Umbauen“ klicken\n- Keine Kollision, Standort und Anschlüsse bleiben gleich, Ware, die ins neue Modul passt, bleibt im Lager\n- Ware, die nicht mehr passt: das Spiel pausiert und ein Fenster zeigt, welche Module nötig sind, zum Beispiel „1x Stückgut Modul: Ziegel 200“\n- Ware verwerfen oder ein passendes Lager oder Modul bauen: das Baumenü öffnet sich, ein kleines Infofenster bleibt sichtbar und die Ware wird nach dem Bau automatisch eingelagert\n- Fängt auch Ware auf, die beim normalen Entfernen eines Moduls oder beim Abriss eines ganzen Lagers verloren ginge\n\nGut zu wissen: Ware kann nur in Spezialmodule zurückgelegt werden. Der Mod legt dieses Modul dafür auf die Warenart fest, die Festlegung lässt sich im Lagerfenster jederzeit wieder aufheben.\n\nREMPLACER LES ENTREPÔTS\nChangez le type d'un module d'entrepôt sur place, sans démolition et sans perdre les marchandises stockées.\n\n- Nouvelle carte « Transformer l'entrepôt » dans la fenêtre de l'entrepôt : choisissez un nouveau type par module (universel, marchandises, vrac, liquide, plateau) et cliquez sur « Transformer »\n- Aucune collision, l'emplacement et les raccordements restent identiques, les marchandises compatibles restent dans l'entrepôt\n- Marchandises qui ne rentrent plus : le jeu se met en pause et une fenêtre indique les modules nécessaires, par exemple « 1x module Marchandises : Briques 200 »\n- Jetez les marchandises ou construisez un entrepôt ou module adapté : le menu de construction s'ouvre, une petite fenêtre d'information reste visible et les marchandises sont stockées automatiquement après la construction\n- Récupère aussi les marchandises perdues lors du retrait normal d'un module ou de la démolition d'un entrepôt entier\n\nBon à savoir : les marchandises ne peuvent être replacées que dans des modules spécialisés. Le mod fixe ce module sur le type de marchandise, vous pouvez annuler ce réglage à tout moment dans la fenêtre de l'entrepôt.\n\nBUG REPORTS / FEHLERMELDUNGEN / SIGNALER UN BUG\nGitHub: https://github.com/Nalathan01/TF3_ReplaceWarehouses/issues\nBug reports please only via GitHub or mod.io. Comments on other download sites cannot be read or answered.\nFehlermeldungen bitte nur über GitHub oder mod.io. Kommentare auf anderen Download-Seiten können nicht gelesen oder beantwortet werden.\nMerci de signaler les bugs uniquement via GitHub ou mod.io. Les commentaires sur les autres sites de téléchargement ne peuvent pas être lus ni traités.",
+    "localization": {
+        "de": {
+            "name": "Lager Ersetzen",
+            "summary": "Den Typ eines Lagermoduls an Ort und Stelle ändern, die gelagerte Ware bleibt erhalten."
+        },
+        "fr": {
+            "name": "Remplacer Les Entrepôts",
+            "summary": "Changez le type d'un module d'entrepôt sur place, les marchandises stockées sont conservées."
+        }
+    },
+    "tags": [
+        "Script Mod"
+    ],
+    "url": "https://github.com/Nalathan01/TF3_ReplaceWarehouses"
+}

@@ -1,0 +1,12 @@
+{
+  "archives": null,
+  "files": [
+    "lager_ersetzen/lager_ersetzen.css.lua",
+    "lager_ersetzen/lager_ersetzen.gs.lua",
+    "lager_ersetzen/lager_ersetzen.script.lua",
+    "lager_ersetzen/lager_ersetzen_card.res.lua",
+    "lager_ersetzen/lager_ersetzen_eow.script.lua",
+    "lager_ersetzen/lager_ersetzen_gui.script.lua",
+    "lager_ersetzen/lager_ersetzen_plugin.res.lua"
+  ]
+}
