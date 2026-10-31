@@ -1,20 +1,21 @@
 # Replace Warehouses
 
-In Transport Fever 3 you cannot place a specialised warehouse on top of an existing one, the game reports a collision. Demolishing the old warehouse first throws away everything stored in it. Replace Warehouses lets you change the type of a warehouse module right where it stands and keeps the cargo.
+In Transport Fever 3 you cannot place a specialised warehouse on top of an existing one, the game reports a collision. Demolishing the old warehouse first throws away everything stored in it. Replace Warehouses lets you change the type of a warehouse right where it stands and keeps the cargo.
 
 ## Features
 
-- New card "Rebuild warehouse" in the warehouse window: pick a new type per module (universal, goods, bulk, liquid, flatbed) and click "Rebuild"
-- The module is swapped in its slot: no collision, position and connections stay the same, cargo that fits the new module stays in the warehouse
-- Cargo that no longer fits: the game pauses and a window lists the modules you need, for example "1x Goods module: Bricks 200"
-- Discard the cargo, or build a suitable warehouse or module: the build menu opens, a small info window stays visible and the cargo is stored automatically after building, then the game continues
-- Also catches cargo lost when a module is removed or a whole warehouse is demolished the normal way
+- New card "Rebuild warehouse" in the warehouse window: pick the new type (universal, goods, bulk, liquid, flatbed) and click "Rebuild"
+- No collision, position and connections stay the same, cargo that fits the new type stays in the warehouse
+- The rebuild costs the normal price of the new warehouse, shown on the button and booked as warehouse construction
+- Cargo that no longer fits: the game pauses and a window lists the warehouses you need, for example "1x Goods warehouse: Bricks 200"
+- Discard the cargo, or build a suitable warehouse: the build menu opens, a small info window stays visible and the cargo is stored automatically after building, then the game continues
+- Also catches cargo lost when a warehouse is demolished the normal way
 - Waiting cargo is saved with the savegame
 - German, English and French
 
 ## Good to know
 
-Cargo can only be put back into specialised modules, a universal module cannot take back a specific cargo type. The mod sets the receiving module to that cargo type, you can reset it in the warehouse window at any time.
+Cargo can only be put back into specialised warehouses, a universal warehouse cannot take back a specific cargo type. The mod sets the receiving warehouse to that cargo type, you can reset it in the warehouse window at any time.
 
 ## Installation
 

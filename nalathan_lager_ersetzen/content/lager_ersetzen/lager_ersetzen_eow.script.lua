@@ -86,6 +86,62 @@ local function makeEntry(old, newName, newId)
 	return entry
 end
 
+local function getCurrentYear()
+	local gameTime = api.engine.getComponent(api.engine.util.getWorld(), api.type.ComponentType.GAME_TIME)
+	return api.engine.util.getCalendarDate(gameTime.gameTime).year
+end
+
+local function getPrice(moduleType)
+	local ok, price = pcall(function()
+		local year = getCurrentYear()
+		local best = nil
+		for id, name in pairs(api.res.constructionRep.getAll()) do
+			if string.match(name, "warehouse_era_%a_" .. moduleType) then
+				local desc = api.res.constructionRep.get(id)
+				local yearFrom = desc.availability.yearFrom or 0
+				local yearTo = desc.availability.yearTo or 0
+				if (yearFrom == 0 or yearFrom <= year) and (yearTo == 0 or year < yearTo) then
+					best = desc.description.attributes.cost[1]
+				end
+			end
+		end
+		return best
+	end)
+	if ok and price ~= nil and price > 0 then
+		return math.floor(price)
+	end
+	local __, moduleId = findModule(moduleType)
+	if moduleId ~= nil then
+		local desc = api.res.moduleRep.get(moduleId)
+		if desc ~= nil and desc.metadata ~= nil and desc.metadata.price ~= nil then
+			return desc.metadata.price
+		end
+	end
+	return 0
+end
+
+local function getBalance()
+	local ok, balance = pcall(function()
+		return api.engine.util.finance.getPlayersBalance(api.engine.util.getPlayer())
+	end)
+	if ok then
+		return balance
+	end
+	return nil
+end
+
+local function bookCost(price)
+	if price <= 0 then
+		return
+	end
+	local entry = api.type.JournalEntry.new()
+	entry.amount = -price
+	entry.time = -1
+	entry.category.type = api.type.JournalEntry.Type.CONSTRUCTION
+	entry.category.construction = api.type.JournalEntry.Construction.WAREHOUSE
+	api.cmd.sendCommand(api.cmd.makeJournalBookAssetCmd(api.engine.util.getPlayer(), entry, api.type.Vec3f.new(0, 0, 0)))
+end
+
 local function rebuild(constructionEntity, slotId, newType)
 	local construction = api.engine.getComponent(constructionEntity, api.type.ComponentType.CONSTRUCTION)
 	if construction == nil or construction.params.modules == nil then
@@ -112,6 +168,7 @@ local function rebuild(constructionEntity, slotId, newType)
 			log.warning("LagerErsetzen: rebuild rejected, module entry " .. describeEntry(old))
 		end
 	end)
+	bookCost(getPrice(newType))
 	return true
 end
 
@@ -154,6 +211,15 @@ local ModuleRow = react.RegisterRecipe("NalathanLagerErsetzenModuleRow", functio
 		}
 	end
 
+	local changed = selected:old() ~= params.moduleType
+	local price = changed and getPrice(selected:old()) or 0
+	local balance = getBalance()
+	local affordable = balance == nil or price <= balance
+	local buttonText = _("LAGERERSETZEN_REBUILD")
+	if changed and price > 0 then
+		buttonText = string.format(_("LAGERERSETZEN_REBUILD_PRICE"), api.util.formatMoney(price))
+	end
+
 	local children = {
 		makeText(string.format(_("LAGERERSETZEN_MODULE"), params.index, _("LAGERERSETZEN_TYPE_" .. string.upper(params.moduleType)))),
 		builtin.ComboBox{
@@ -165,10 +231,10 @@ local ModuleRow = react.RegisterRecipe("NalathanLagerErsetzenModuleRow", functio
 			end,
 		},
 		builtin.Button{
-			meta = { class = "primary", enabled = selected:old() ~= params.moduleType },
-			content = makeText(_("LAGERERSETZEN_REBUILD")),
+			meta = { class = "primary", enabled = changed and affordable, tooltip = affordable and "" or _("LAGERERSETZEN_NO_MONEY") },
+			content = makeText(buttonText),
 			onClick = function()
-				if selected:old() ~= params.moduleType then
+				if changed and affordable then
 					failed:set(not rebuild(params.construction, params.slotId, selected:old()))
 				end
 			end,
